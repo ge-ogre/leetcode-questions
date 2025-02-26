@@ -1,16 +1,12 @@
-class Solution(object):
-    def twoSum(self, A, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        l, r = 0, 1
-        while l<r:
-            if A[r] == target - A[l]:
-                return [l,r]
-            if r == len(A)-1:
-                l+=1
-                r = l+1
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        left, right = 0, 1
+        while left < right:
+            if nums[left] + nums[right] == target:
+                return [left, right]
             else:
-                r+=1
+                if right >= len(nums) - 1:
+                    left += 1
+                    right = left + 1
+                else:
+                    right += 1
