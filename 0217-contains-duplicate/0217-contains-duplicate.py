@@ -1,13 +1,9 @@
-class Solution(object):
-    def containsDuplicate(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
-        store={}
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        store = {}
         for i in nums:
-            if i not in store:
-                store[i]=1
-            else:
+            if i in store:
                 return True
+            else:
+                store[i] = 1
         return False
