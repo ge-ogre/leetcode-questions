@@ -1,25 +1,20 @@
-class Solution(object):
-    def isAnagram(self, s, t):
-        """
-        :type s: str
-        :type t: str
-        :rtype: bool
-        """
-        store={}
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        store = {}
         for i in s:
-            if i not in store:
-                store[i]=1
+            if i in store:
+                store[i] += 1
             else:
-                store[i]+=1
-        
+                store[i] = 1
+
         for i in t:
-            if i not in store:
-                return False
+            if i in store:
+                store[i] -= 1
             else:
-                store[i]-=1
-        
-        for i in store:
-            if store[i] > 0:
                 return False
         
+        for k in store:
+            if store[k] != 0:
+                return False
+
         return True
